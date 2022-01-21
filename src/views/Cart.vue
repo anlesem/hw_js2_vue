@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <product-card v-for="product of showcase" :key="product.id" :data="product" :target="'showcase'" v-on:productAction="onBuy"></product-card>
+    <product-card v-for="product of cart" :key="product.id" :data="product" :target="'cart'" v-on:productAction="onDelete"></product-card>
   </div>
 </template>
 
@@ -15,8 +15,8 @@ export default {
     'cart'
   ],
   methods: {
-    onBuy(product) {
-      this.$emit('productAdd', product)
+    onDelete(product) {
+      this.$emit('productDelete', product)
     }
   }
 }
