@@ -1,33 +1,38 @@
+// v-on:productAction - подписка на Событие в ProductCard.vue methods.onClick(). "onDelete" - обработчик События
 <template>
   <div class="home">
-    <product-card v-for="product of cart" :key="product.id" :data="product" :target="'cart'" v-on:productAction="onDelete"></product-card>
+    <product-card
+      v-for="product of cart"
+      :key="product.id"
+      :data="product"
+      :target="'cart'"
+      v-on:productAction="onDelete"
+    ></product-card>
   </div>
 </template>
 
 <script>
-import ProductCard from '../components/ProductCard.vue'
+import ProductCard from "../components/ProductCard.vue";
 
 export default {
   components: { ProductCard },
-  name: 'Home',
-  props: [
-    'showcase',
-    'cart'
-  ],
+  name: "Home",
+  props: ["showcase", "cart"],
   methods: {
     onDelete(product) {
-      this.$emit('productDelete', product)
-    }
-  }
-}
+      // Создание События компонента с названием "productDelete" и параметром product
+      this.$emit("productDelete", product);
+    },
+  },
+};
 </script>
 
 
 <style lang="scss">
-  .home{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-  }
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
 </style>

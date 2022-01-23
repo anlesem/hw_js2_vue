@@ -1,1 +1,61 @@
-[{"id":1,"title":"Jacket white","price":336, "img": "shirt.jpg"},{"id":2,"title":"Hat red","price":116, "img": "hat.jpg"},{"id":3,"title":"Socks orange","price":970, "img": "shirt.jpg"},{"id":4,"title":"Jacket white","price":386, "img": "shirt.jpg"},{"id":5,"title":"Shirt black","price":262, "img": "shirt.jpg"},{"id":6,"title":"Jacket white","price":482, "img": "shirt.jpg"},{"id":7,"title":"Shoes black","price":237, "img": "hat.jpg"},{"id":8,"title":"Hat orange","price":570, "img": "hat.jpg"},{"id":9,"title":"Hat green","price":279, "img": "hat.jpg"},{"id":10,"title":"Shirt orange","price":441, "img": "shirt.jpg"},{"id":11,"title":"Hat white","price":778, "img": "hat.jpg"},{"id":12,"title":"Hat white","price":938, "img": "hat.jpg"}]
+[{
+	"id": 1,
+	"title": "Jacket white",
+	"price": 336,
+	"img": "shirt.jpg"
+}, {
+	"id": 2,
+	"title": "Hat red",
+	"price": 116,
+	"img": "hat.jpg"
+}, {
+	"id": 3,
+	"title": "Socks orange",
+	"price": 970,
+	"img": "shirt.jpg"
+}, {
+	"id": 4,
+	"title": "Jacket white",
+	"price": 386,
+	"img": "shirt.jpg"
+}, {
+	"id": 5,
+	"title": "Shirt black",
+	"price": 262,
+	"img": "shirt.jpg"
+}, {
+	"id": 6,
+	"title": "Jacket white",
+	"price": 482,
+	"img": "shirt.jpg"
+}, {
+	"id": 7,
+	"title": "Shoes black",
+	"price": 237,
+	"img": "hat.jpg"
+}, {
+	"id": 8,
+	"title": "Hat orange",
+	"price": 570,
+	"img": "hat.jpg"
+}, {
+	"id": 9,
+	"title": "Hat green",
+	"price": 279,
+	"img": "hat.jpg"
+}, {
+	"id": 10,
+	"title": "Shirt orange",
+	"price": 441,
+	"img": "shirt.jpg"
+}, {
+	"id": 11,
+	"title": "Hat white",
+	"price": 778,
+	"img": "hat.jpg"
+}, {
+	"id": 12,
+	"title": "Hat white",
+	"price": 938,
+	"img": "hat.jpg"
+}]

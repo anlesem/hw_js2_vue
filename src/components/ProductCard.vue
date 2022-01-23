@@ -11,20 +11,18 @@
 <script>
 export default {
   name: "card",
-  props: [
-    "data",
-    "target"
-  ],
+  props: ["data", "target"],
   methods: {
     onClick() {
-      this.$emit('productAction', this.data)
-    }
-  }
-}
+      // Создание События компонента с названием "productAction" и параметром this.data
+      this.$emit("productAction", this.data);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-.card{
+.card {
   width: 30%;
   border: 1px solid black;
   padding: 10px;
@@ -34,7 +32,7 @@ export default {
   align-items: center;
   margin-bottom: 20px;
 
-  img{
+  img {
     width: 100%;
   }
 }
