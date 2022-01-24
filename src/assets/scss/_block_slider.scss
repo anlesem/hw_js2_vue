@@ -1,0 +1,124 @@
+$height-of-slider: 777px;
+$height-of-slider-small: 624px;
+
+.slider {
+	position: relative;
+	height: $height-of-slider;
+	width: 100%;
+	background-color: #f7f7f7;
+
+	@include tablet {
+		height: $height-of-slider-small;
+	}
+
+	&__input {
+		display: none;
+	}
+
+	&>ul {
+		position: relative;
+		z-index: 1;
+		margin: 0 auto;
+		height: $height-of-slider;
+
+		@include tablet {
+			height: $height-of-slider-small;
+		}
+
+		&>li {
+			@include position-size-parent;
+			margin-top: 11px;
+			z-index: 1;
+			text-align: center;
+
+			& img {
+				@include tablet {
+					width: auto;
+					height: 565px;
+				}
+
+				@include mobile {
+					height: 455px;
+				}
+			}
+		}
+
+		& .slider__element-0 {
+			opacity: 1;
+			z-index: 2;
+		}
+
+		& .slider__element-1 {
+			opacity: 0;
+		}
+
+		& .slider__element-2 {
+			opacity: 0;
+		}
+	}
+
+	&>.slider__input:checked~ul>li.slider__element-0 {
+		opacity: 0;
+		z-index: 1;
+	}
+
+	&>#slide-0:checked~ul>li.slider__element-0,
+	&>#slide-1:checked~ul>li.slider__element-1,
+	&>#slide-2:checked~ul>li.slider__element-2 {
+		opacity: 1;
+		z-index: 2;
+	}
+
+	/* ===================== ARROWS ===================== */
+
+	&__arrow {
+
+		&-prev,
+		&-next {
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			width: 47px;
+			height: 47px;
+			fill: #000;
+			z-index: 5;
+			transition: fill 500ms;
+
+			&:hover,
+			&:hover {
+				fill: $pink;
+			}
+
+			&>label {
+				@include position-size-parent;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: rgba(42, 42, 42, 0.15);
+				z-index: -1;
+
+				&:hover,
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+
+		&-prev {
+			left: 0;
+		}
+
+		&-next {
+			right: 0;
+		}
+	}
+
+	&>#slide-0:checked~.slider__arrow-prev>label.slider__element-2,
+	&>#slide-0:checked~.slider__arrow-next>label.slider__element-1,
+	&>#slide-1:checked~.slider__arrow-prev>label.slider__element-0,
+	&>#slide-1:checked~.slider__arrow-next>label.slider__element-2,
+	&>#slide-2:checked~.slider__arrow-prev>label.slider__element-1,
+	&>#slide-2:checked~.slider__arrow-next>label.slider__element-0 {
+		z-index: 5;
+	}
+}

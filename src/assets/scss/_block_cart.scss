@@ -1,0 +1,343 @@
+.cart {
+	background-color: #F8F3F4;
+
+	&__head {
+		padding: 60px 0;
+		font-size: 24px;
+		line-height: 29px;
+		text-transform: uppercase;
+		color: $pink;
+
+		@include mobile {
+			text-align: center;
+		}
+	}
+
+	&__wrapper {
+		margin: 96px 0 128px;
+		display: flex;
+		justify-content: space-between;
+
+		@include tablet {
+			margin-top: 60px;
+			flex-direction: column;
+		}
+
+		@include mobile {
+			margin: 40px 0 96px;
+		}
+
+		&>div {
+			flex-grow: 1;
+			max-width: 650px;
+
+			@include tablet {
+				width: 100%;
+				max-width: none;
+			}
+		}
+	}
+
+	&__item {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 40px;
+		box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+
+		@include mobile {
+			margin-bottom: 32px;
+		}
+
+		&>img {
+			@include tablet {
+				align-self: center;
+				width: 35%;
+				height: auto;
+			}
+
+			@include mobile {
+				width: 45%;
+			}
+		}
+
+		&-manage {
+			position: relative;
+			flex-grow: 1;
+			padding: 22px 31px;
+			font-size: 22px;
+			line-height: 26px;
+			color: #575757;
+
+			@include mobile {
+				padding: 13px 17px;
+				font-size: 14px;
+				line-height: 17px;
+			}
+		}
+
+		&-delete {
+			position: absolute;
+			top: 22px;
+			right: 31px;
+
+			@include mobile {
+				width: 10px;
+				height: 10px;
+				top: 13px;
+				right: 17px;
+			}
+
+			&:hover {
+				opacity: 0.6;
+				cursor: pointer;
+			}
+		}
+
+		&-head {
+			max-width: 260px;
+			margin-bottom: 42px;
+			font-size: 24px;
+			line-height: 29px;
+			text-transform: uppercase;
+			color: $dark;
+
+			@include mobile {
+				max-width: 140px;
+				font-size: 16px;
+				line-height: 19px;
+				margin-bottom: 25px;
+			}
+		}
+
+		&-text {
+			margin-bottom: 6px;
+		}
+
+		&-price {
+			color: $pink;
+		}
+
+		&-input {
+			width: 45px;
+			height: 24px;
+			border: 1px solid #EAEAEA;
+			margin-left: 24px;
+			text-align: center;
+			font-size: 18px;
+			line-height: 22px;
+			color: #656565;
+
+			@include mobile {
+				width: 24px;
+				height: 15px;
+			}
+		}
+	}
+
+	&__list {
+
+		&-operation {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 72px;
+
+			@include tablet {
+				justify-content: space-around;
+			}
+
+			@include mobile {
+				justify-content: space-between;
+				margin-top: 30px;
+			}
+
+			& button:first-child {
+				margin-right: 10px;
+			}
+		}
+
+		&-button {
+			padding: 16px 40px;
+			background-color: transparent;
+			border: 1px solid #A4A4A4;
+			font-size: 14px;
+			line-height: 17px;
+			text-transform: uppercase;
+			color: #A4A4A4;
+			transition: background-color 500ms, border 500ms, color 500ms;
+
+			@include mobile {
+				padding: 8px 25px;
+				font-size: 12px;
+				line-height: 14px;
+				text-transform: none;
+			}
+
+			&:hover {
+				border: 1px solid $pink;
+				background-color: $pink;
+				color: #fff;
+				cursor: pointer;
+			}
+		}
+
+	}
+
+	&__form {
+		width: 360px;
+		margin-left: 20px;
+
+		@include tablet {
+			width: 100%;
+			margin-left: 0;
+		}
+
+		& div {
+			@include tablet {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			@include mobile {
+				flex-direction: column;
+			}
+
+			&>fieldset {
+				@include tablet {
+					width: 50%;
+				}
+
+				@include mobile {
+					width: 100%;
+				}
+			}
+
+			&>fieldset:first-child {
+				@include tablet {
+					margin-right: 15px;
+				}
+			}
+		}
+
+		&-head {
+			margin-bottom: 20px;
+			font-size: 16px;
+			font-weight: 300;
+			line-height: 19px;
+			text-transform: uppercase;
+
+			@include tablet {
+				margin-top: 64px;
+			}
+
+			@include mobile {
+				margin-top: 48px;
+			}
+		}
+
+		&-input {
+			width: 100%;
+			margin-bottom: 21px;
+			padding: 14px 17px;
+			border: 1px solid #A4A4A4;
+			box-sizing: border-box;
+			font-size: 13px;
+			font-weight: 300;
+			line-height: 16px;
+
+		}
+
+		&-button {
+			padding: 10px 15px;
+			border: 1px solid #A4A4A4;
+			background-color: transparent;
+			text-transform: uppercase;
+			font-size: 11px;
+			font-weight: 300;
+			line-height: 13px;
+			text-align: center;
+			color: #A4A4A4;
+			transition: background-color 500ms, border 500ms, color 500ms;
+
+			&:hover {
+				border: 1px solid $pink;
+				background-color: $pink;
+				color: #fff;
+				cursor: pointer;
+			}
+
+		}
+
+	}
+
+	&__total {
+		margin-top: 58px;
+		padding: 40px 43px;
+		box-sizing: border-box;
+		background-color: #f5f3f3;
+		text-transform: uppercase;
+		text-align: right;
+
+		@include tablet {
+			margin-top: 0;
+		}
+
+		@include mobile {
+			margin-top: 48px;
+		}
+
+		&-text {
+			font-size: 11px;
+			line-height: 13px;
+			margin-bottom: 12px;
+
+			&-price {
+				margin-left: 25px;
+			}
+
+		}
+
+		&-grand {
+			font-size: 16px;
+			font-weight: 300;
+			line-height: 19px;
+			margin-bottom: 21px;
+
+			&-price {
+				font-weight: 700;
+				color: $pink;
+				margin-left: 25px;
+			}
+		}
+
+		&-separate {
+			border: none;
+			border-top: 1px solid #e2e2e2;
+		}
+
+		&-button {
+			width: 100%;
+			margin-top: 17px;
+			padding: 15px 0;
+			border: 1px solid $pink;
+			background-color: $pink;
+			text-transform: uppercase;
+			font-size: 16px;
+			font-weight: 300;
+			line-height: 19px;
+			text-align: center;
+			color: #fff;
+			transition: opacity 500ms;
+
+			&:hover {
+				opacity: 0.6;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
