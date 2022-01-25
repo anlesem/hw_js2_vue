@@ -14,14 +14,20 @@
 <script>
 import ProductCard from "../components/ProductCard.vue";
 
+// computed: - отслеживание изменений в  Store
+// 	getters – метод Объекта Store для вызова методов из getters
+// 	dispatch – метод Объекта Store для вызова методов из actions
 export default {
   components: { ProductCard },
   name: "Home",
-  props: ["showcase", "cart"],
+  computed: {
+    cart() {
+      return this.$store.getters.getCart;
+    },
+  },
   methods: {
     onDelete(product) {
-      // Создание События компонента с названием "productDelete" и параметром product
-      this.$emit("productDelete", product);
+      this.$store.dispatch("removeFromCart", product);
     },
   },
 };
