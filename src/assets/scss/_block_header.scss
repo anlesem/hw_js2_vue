@@ -1,0 +1,220 @@
+.header {
+	background-color: $dark;
+	position: relative;
+
+	& .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 75px;
+
+		@include tablet {
+			padding: 0 32px;
+		}
+
+		@include mobile {
+			padding: 0 16px;
+		}
+
+		&>div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&__logo {
+		margin-right: 41px;
+		transition: opacity 500ms, transform 500ms;
+
+		&:hover,
+		&:focus {
+			opacity: 0.7;
+			transform: scale(0.8);
+		}
+
+		&:active {
+			opacity: 0.5;
+		}
+	}
+
+	&__icon {
+		&-redrow {
+			fill: $icon-color;
+			transition: fill 500ms;
+
+			&:hover,
+			&:focus {
+				fill: $icon-color-hover;
+				cursor: pointer;
+			}
+
+			&:active {
+				opacity: 0.7;
+			}
+		}
+
+		&-find {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			fill: $icon-color;
+			border: 0 solid transparent;
+			padding: 0;
+			transition: border 500ms, padding 500ms, fill 500ms;
+
+			&>svg {
+				margin-right: 15px;
+			}
+
+			&>input {
+				width: 0;
+				padding: 3px 5px;
+				background-color: transparent;
+				border: 0;
+				transition: width 500ms, background-color 500ms;
+			}
+
+			&:hover,
+			&:focus {
+				border: 1px solid $icon-color-hover;
+				padding: 5px 15px;
+				fill: $icon-color-hover;
+				cursor: pointer;
+
+				& input {
+					width: 100px;
+					background-color: rgba(#FFF, 0.8);
+				}
+			}
+		}
+	}
+
+	&__reg {
+		margin: 0 42px 0 25px;
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	&__cart {
+		position: relative;
+
+		&::after {
+			content: "2";
+			position: absolute;
+			top: -8px;
+			right: -8px;
+			width: 19px;
+			height: 19px;
+			border-radius: 50%;
+			background-color: $icon-color-hover;
+			text-align: center;
+			color: #FFF;
+			font-family: Lato;
+			font-size: 12px;
+			transition: opacity 500ms;
+		}
+
+		&:hover::after,
+		&:focus::after {
+			opacity: 0.7;
+		}
+
+		&:active::after {
+			opacity: 0.5;
+		}
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	&__button {
+		border: 0;
+		padding: 0;
+		background-color: transparent;
+	}
+
+	&__menu {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		height: 765px;
+		background-color: $transparent;
+		z-index: 10;
+
+		&-wrapper {
+			position: absolute;
+			top: 0;
+			right: 0;
+			text-transform: uppercase;
+			width: 230px;
+			height: 100%;
+			padding: 37px 34px;
+			box-sizing: border-box;
+			background-color: #FFF;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 17px;
+		}
+
+		&-close {
+			position: absolute;
+			top: 16px;
+			right: 16px;
+			transition: opacity 500ms;
+
+			&:hover,
+			&:focus {
+				opacity: 0.7;
+				cursor: pointer;
+			}
+
+			&:active {
+				opacity: 0.5;
+			}
+		}
+
+		&-list {
+			margin-top: 24px;
+		}
+
+		&-head {
+			margin: 20px 0 12px;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 17px;
+			color: $pink;
+		}
+
+		&-item {
+			margin: 11px 0 0 20px;
+		}
+
+		&-item>a {
+			text-transform: none;
+			font-size: 14px;
+			font-weight: 400;
+			color: #6e6e6e;
+			transition: opacity 500ms;
+
+			&:hover,
+			&:focus {
+				opacity: 0.7;
+			}
+
+			&:active {
+				opacity: 0.5;
+			}
+		}
+	}
+}
+
+.display-block {
+	display: block;
+}

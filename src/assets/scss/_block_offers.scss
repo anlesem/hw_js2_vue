@@ -1,0 +1,118 @@
+.offers {
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 65px;
+
+		@include tablet {
+			margin-top: 20px;
+		}
+
+		& a {
+			@include position-size-parent;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+	}
+
+	&__item {
+		position: relative;
+		color: #fff;
+		width: 31%;
+		min-height: 260px;
+		margin-bottom: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-transform: uppercase;
+		text-align: center;
+		background-color: $transparent;
+		transition: background-color 500ms, opacity 500ms;
+
+		@include tablet {
+			min-height: 167px;
+			margin-bottom: 20px;
+		}
+
+		@include mobile {
+			width: 100%;
+			min-height: 247px;
+		}
+
+		&:hover,
+		&:focus {
+			background-color: rgba(33, 22, 22, 0.5);
+
+			& .offers__head,
+			& .offers__text {
+				opacity: 0.7;
+			}
+		}
+
+		&:active {
+			opacity: 0.5;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			z-index: -1;
+		}
+
+		&-woman::after {
+			background-image: url(/img/offer_image01.jpg);
+			background-position: center center;
+			background-size: cover;
+		}
+
+		&-man::after {
+			background-image: url(/img/offer_image02.jpg);
+			background-position: center center;
+			background-size: cover;
+		}
+
+		&-kids::after {
+			background-image: url(/img/offer_image03.jpg);
+			background-position: center center;
+			background-size: cover;
+		}
+
+		&-accesories {
+			width: 100%;
+			min-height: 180px;
+			margin: 0;
+
+			@include tablet {
+				flex-direction: column;
+				min-height: 116px;
+			}
+
+			&::after {
+				background-image: url(/img/offer_image04.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+	}
+
+	&__head {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 19px;
+	}
+
+	&__text {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 29px;
+		color: $pink;
+	}
+}

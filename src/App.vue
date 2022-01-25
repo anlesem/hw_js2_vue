@@ -75,26 +75,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-* {
-  padding: 0;
-  margin: 0;
-}
-
-header {
-  height: 80px;
-  padding: 10px 20px;
-  background: #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    align-items: center;
-  }
-}
-</style>
+<style src="@/assets/scss/style.scss" lang="scss"></style>

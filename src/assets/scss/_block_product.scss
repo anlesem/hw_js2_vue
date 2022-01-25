@@ -1,0 +1,151 @@
+.product {
+	text-align: center;
+
+	&__head {
+		margin-top: 96px;
+		font-size: 30px;
+		line-height: 36px;
+		color: $dark;
+
+		@include tablet {
+			margin-top: 64px;
+		}
+	}
+
+	&__subhead {
+		font-size: 14px;
+		line-height: 17px;
+		color: #9f9f9f;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 48px;
+
+		@include tablet {
+			justify-content: space-around;
+		}
+	}
+
+	&__items {
+		max-width: 360px;
+		background-color: #f8f8f8;
+		margin-bottom: 30px;
+		text-align: left;
+
+		@include tablet {
+			margin-bottom: 15px;
+		}
+
+		&>div {
+			position: relative;
+		}
+
+		&>div>img {
+			display: block;
+
+			@include mobile {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&-overlaeyer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: $transparent;
+			opacity: 0;
+
+			&:hover,
+			&:focus {
+				opacity: 1;
+				cursor: pointer;
+			}
+
+			&:active {
+				opacity: 0.8;
+			}
+		}
+
+		&-button {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			width: 140px;
+			height: 40px;
+			border: 1px solid #fff;
+			font-size: 14px;
+			line-height: 17px;
+			color: #fff;
+			transition: transform 500ms;
+
+			&:hover,
+			&:focus {
+				cursor: pointer;
+				transform: translate(-50%, -50%) scale(0.8);
+				opacity: 0.7;
+			}
+
+			&:active {
+				opacity: 0.5;
+			}
+		}
+	}
+
+	&__info {
+		padding: 25px 18px 20px;
+
+		&-head {
+			font-size: 13px;
+			line-height: 16px;
+			text-transform: uppercase;
+		}
+
+		&-text {
+			font-size: 14px;
+			font-weight: 300;
+			line-height: 17px;
+			color: #5d5d5d;
+			margin: 13px 0 18px;
+		}
+
+		&-price {
+			font-size: 16px;
+			line-height: 19px;
+			color: $pink;
+		}
+	}
+
+	&__button {
+		display: inline-block;
+		font-size: 16px;
+		line-height: 19px;
+		border: 1px solid $pink;
+		margin-top: 20px;
+		padding: 14px 38px;
+		background-color: transparent;
+		color: $pink;
+		transition: background-color 500ms, color 500ms;
+
+		&:hover,
+		&:focus {
+			background-color: $pink;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		&:active {
+			opacity: 0.8;
+		}
+	}
+
+}
