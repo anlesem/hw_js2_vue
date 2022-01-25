@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img :src="`./assets/img/${data.img}`" />
+    <img :src="`./img/${data.img}`" />
     <h3>{{ data.title }}</h3>
     <strong>{{ data.price }}$</strong>
     <button v-on:click="onClick" v-if="target == 'showcase'">Купить</button>

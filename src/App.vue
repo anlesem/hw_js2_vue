@@ -75,4 +75,4 @@ export default {
 };
 </script>
 
-<style src="@/assets/css/style.css"></style>
+<style src="@/assets/scss/style.scss" lang="scss"></style>
