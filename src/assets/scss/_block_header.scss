@@ -74,6 +74,7 @@
 				background-color: transparent;
 				border: 0;
 				transition: width 500ms, background-color 500ms;
+				outline: 0;
 			}
 
 			&:hover,
@@ -139,7 +140,6 @@
 	}
 
 	&__menu {
-		display: none;
 		position: absolute;
 		top: 100%;
 		left: 0;

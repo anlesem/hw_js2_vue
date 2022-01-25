@@ -25,79 +25,33 @@
           </div>
         </div>
         <div>
-          <button class="header__button" id="burger" type="button">
+          <button class="header__button" type="button" v-on:click="menuVisible">
             <svg class="header__icon-redrow" width="32" height="23">
               <use href="#icon__menu" />
             </svg>
           </button>
-          <a href="reg.html" class="header__reg">
+          <router-link to="/reg" class="header__reg">
             <svg class="header__icon-redrow" width="29" height="29">
               <use href="#icon__reg" />
             </svg>
-          </a>
+          </router-link>
           <router-link to="/cart" class="header__cart">
             <svg class="header__icon-redrow" width="32" height="29">
               <use href="#icon__cart" />
             </svg>
           </router-link>
         </div>
-        <nav class="header__menu" id="menu">
-          <div class="header__menu-wrapper">
-            menu
-            <img
-              id="close"
-              class="header__menu-close"
-              src="img/header_menu_close.svg"
-              alt="Закрыть"
-              width="13"
-              height="13"
-            />
-            <ul class="header__menu-list">
-              <li>
-                <h2 class="header__menu-head">man</h2>
-                <ul>
-                  <li class="header__menu-item"><a href="#">Accessories</a></li>
-                  <li class="header__menu-item"><a href="#">Bags</a></li>
-                  <li class="header__menu-item"><a href="#">Denim</a></li>
-                  <li class="header__menu-item"><a href="#">T-Shirts</a></li>
-                </ul>
-              </li>
-              <li>
-                <h2 class="header__menu-head">woman</h2>
-                <ul>
-                  <li class="header__menu-item"><a href="#">Accessories</a></li>
-                  <li class="header__menu-item">
-                    <a href="#">Jackets & Coats</a>
-                  </li>
-                  <li class="header__menu-item"><a href="#">Polos</a></li>
-                  <li class="header__menu-item"><a href="#">T-Shirts</a></li>
-                  <li class="header__menu-item"><a href="#">Shirts</a></li>
-                </ul>
-              </li>
-              <li>
-                <h2 class="header__menu-head">kids</h2>
-                <ul>
-                  <li class="header__menu-item"><a href="#">Accessories</a></li>
-                  <li class="header__menu-item">
-                    <a href="#">Jackets & Coats</a>
-                  </li>
-                  <li class="header__menu-item"><a href="#">Polos</a></li>
-                  <li class="header__menu-item"><a href="#">T-Shirts</a></li>
-                  <li class="header__menu-item"><a href="#">Shirts</a></li>
-                  <li class="header__menu-item"><a href="#">Bags </a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <MenuNav v-if="isMenuVisible" />
       </div>
     </header>
-    <router-view />
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 
 <script>
-const API_URL = "/api/v1";
+import MenuNav from "@/components/MenuNav.vue";
 
 // $store - обращение к модулю store, где
 // 	getters – метод Объекта Store для вызова методов из getters
@@ -107,6 +61,17 @@ const API_URL = "/api/v1";
 // 	вызываемые при изменениях в данных data() или Store (отслеживание)
 // query: - вычисляемое свойство, которое перезаписывает данные: get() - получение; set() - запись
 export default {
+  components: {
+    MenuNav,
+  },
+  data() {
+    return { isMenuVisible: false };
+  },
+  methods: {
+    menuVisible() {
+      this.isMenuVisible = !this.isMenuVisible;
+    },
+  },
   computed: {
     query: {
       get() {

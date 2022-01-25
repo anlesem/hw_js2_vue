@@ -14,7 +14,6 @@ export default {
   props: ["data", "target"],
   methods: {
     onClick() {
-      // Создание События компонента с названием "productAction" и параметром this.data
       this.$emit("productAction", this.data);
     },
   },

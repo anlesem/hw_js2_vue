@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Cart from '../views/Cart.vue'
+import Home from '@/views/Home.vue'
+import Cart from '@/views/Cart.vue'
 
 const routes = [
 	{
@@ -15,13 +15,27 @@ const routes = [
 	},
 
 	// Ленивая загрузка (при переходе на страницу)
-	// {
-	// 	path: '/cart',
-	// 	name: 'Cart',
-	// 	component: function () {
-	// 		return import('../views/Cart.vue')
-	// 	}
-	// }
+	{
+		path: '/reg',
+		name: 'Reg',
+		component: function () {
+			return import('@/views/Reg.vue')
+		}
+	},
+	{
+		path: '/arrivals',
+		name: 'Arrivals',
+		component: function () {
+			return import('@/views/Arrivals.vue')
+		}
+	},
+	{
+		path: '/catalog',
+		name: 'Catalog',
+		component: function () {
+			return import('@/views/Catalog.vue')
+		}
+	}
 ]
 
 const router = createRouter({
