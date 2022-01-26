@@ -37,44 +37,36 @@ export default createStore({
 	// Асинхронные методы. 
 	// commit – метод Объекта Store для вызова методов из mutations
 	actions: {
-		loadShowcase({ commit }) {
-			return fetch(`${API_URL}/catalog`)
-				.then((req) => req.json())
-				.then((data) => {
-					commit('setShowcase', data)
-				})
+		async loadShowcase({ commit }) {
+			const req = await fetch(`${API_URL}/catalog`);
+			const data = await req.json();
+			commit('setShowcase', data);
 		},
-		loadCart({ commit }) {
-			return fetch(`${API_URL}/cart`)
-				.then((req) => req.json())
-				.then((data) => {
-					commit('setCart', data)
-				})
+		async loadCart({ commit }) {
+			const req = await fetch(`${API_URL}/cart`);
+			const data = await req.json();
+			commit('setCart', data);
 		},
-		addToCart({ commit }, product) {
-			return fetch(`${API_URL}/cart`, {
+		async addToCart({ commit }, product) {
+			await fetch(`${API_URL}/cart`, {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(product)
-			})
-				.then(() => {
-					commit('addToCart', product)
-				})
+			});
+			commit('addToCart', product);
 		},
 
-		removeFromCart({ commit }, product) {
-			return fetch(`${API_URL}/cart`, {
+		async removeFromCart({ commit }, product) {
+			await fetch(`${API_URL}/cart`, {
 				method: 'DELETE',
 				headers: {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(product)
-			})
-				.then(() => {
-					commit('removeFromCart', product)
-				})
+			});
+			commit('removeFromCart', product);
 		}
 	}
 })

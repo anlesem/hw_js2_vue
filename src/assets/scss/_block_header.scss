@@ -103,8 +103,7 @@
 	&__cart {
 		position: relative;
 
-		&::after {
-			content: "2";
+		&-total {
 			position: absolute;
 			top: -8px;
 			right: -8px;

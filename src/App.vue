@@ -39,6 +39,9 @@
             <svg class="header__icon-redrow" width="32" height="29">
               <use href="#icon__cart" />
             </svg>
+            <span class="header__cart-total">{{
+              this.$store.getters.getCart.length
+            }}</span>
           </router-link>
         </div>
         <MenuNav v-if="isMenuVisible" />
@@ -65,7 +68,9 @@ export default {
     MenuNav,
   },
   data() {
-    return { isMenuVisible: false };
+    return {
+      isMenuVisible: false,
+    };
   },
   methods: {
     menuVisible() {

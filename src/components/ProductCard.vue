@@ -67,6 +67,7 @@
 <script>
 export default {
   name: "card",
+  // Значения активируются в компоненте, котором используются (Home и Cart) в <product-card>
   props: ["data", "target"],
   methods: {
     onClick() {
@@ -76,19 +77,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.card {
-  width: 30%;
-  border: 1px solid black;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-
-  img {
-    width: 100%;
-  }
-}
-</style>

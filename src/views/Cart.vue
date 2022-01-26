@@ -44,7 +44,7 @@ import Catalog from "@/views/Catalog.vue";
 // 	dispatch – метод Объекта Store для вызова методов из actions
 export default {
   components: { ProductCard, CartForm, Catalog },
-  name: "Home",
+  name: "Cart",
   computed: {
     cart() {
       return this.$store.getters.getCart;
@@ -58,12 +58,3 @@ export default {
 };
 </script>
 
-
-<style lang="scss">
-.home {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px;
-}
-</style>
