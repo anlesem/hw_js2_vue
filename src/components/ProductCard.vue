@@ -32,7 +32,7 @@
       </div>
     </li>
     <!-- --------------------------- Для корзины --------------------------- -->
-    <li class="cart__item" v-if="target == 'cart'">
+    <li class="cart__item" v-if="visibleCart && target == 'cart'">
       <img
         :src="`./img/${data.img}`"
         alt="изображение товара"
@@ -55,7 +55,8 @@
         <p class="cart__item-text">Color: Red</p>
         <p class="cart__item-text">Size: Xl</p>
         <p class="cart__item-text">
-          Quantity: <input class="cart__item-input" type="number" />
+          Quantity:
+          <input class="cart__item-input" type="number" :value="data.count" />
         </p>
       </div>
     </li>
@@ -68,7 +69,14 @@
 export default {
   name: "card",
   // Значения активируются в компоненте, котором используются (Home и Cart) в <product-card>
+  // Для Корзины доступны дополнительные значения, полученные в Cart
   props: ["data", "target"],
+  data() {
+    return {
+      visibleCart: true,
+      count: 1,
+    };
+  },
   methods: {
     onClick() {
       this.$emit("productAction", this.data);

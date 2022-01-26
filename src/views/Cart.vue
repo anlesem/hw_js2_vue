@@ -46,8 +46,21 @@ export default {
   components: { ProductCard, CartForm, Catalog },
   name: "Cart",
   computed: {
+    // Функция преобразования отображения без обращения к Данным порождающим двойственность (Сервер / Клиент)
     cart() {
-      return this.$store.getters.getCart;
+      const view = this.$store.getters.getCart.reduce((acc, entry) => {
+        entry.count = 1;
+        const id = entry.id;
+        const same = acc.find((element) => element.id === id);
+
+        if (same !== undefined) {
+          same.count += 1;
+        } else acc.push(entry);
+
+        return acc;
+      }, []);
+      console.log(view);
+      return view;
     },
   },
   methods: {
@@ -56,5 +69,17 @@ export default {
     },
   },
 };
+
+// console.log(this.$store.getters.getCart);
+// const mergedArray = Array.from(
+//   this.$store.getters.getCart
+//     .reduce(
+//       (entryMap, e) =>
+//         entryMap.set(e.id, { ...(entryMap.get(e.id) || {}), ...e }),
+//       new Map()
+//     )
+//     .values()
+// );
+// console.log(mergedArray);
 </script>
 
