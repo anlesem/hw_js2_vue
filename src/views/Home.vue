@@ -40,7 +40,7 @@ export default {
   name: "Home",
   computed: {
     showcase() {
-      return this.$store.getters.getProducts;
+      return this.$store.getters.getProducts.filter((item) => item.price < 600);
     },
   },
   methods: {

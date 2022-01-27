@@ -14,10 +14,10 @@
       </fieldset>
       <fieldset class="cart__total">
         <p class="cart__total-text">
-          sub total <span class="cart__total-text-price">$900</span>
+          sub total <span class="cart__total-text-price">${{ data }}</span>
         </p>
         <p class="cart__total-grand">
-          grand total <span class="cart__total-grand-price">$900</span>
+          grand total <span class="cart__total-grand-price">${{ data }}</span>
         </p>
         <hr class="cart__total-separate" />
         <button type="submit" class="cart__total-button">
@@ -30,6 +30,7 @@
 
 <script>
 export default {
-  name: "CartForm",
+  name: "cart-form",
+  props: ["data"],
 };
 </script>

@@ -31,7 +31,10 @@ export default {
   name: "Arrivals",
   computed: {
     showcase() {
-      return this.$store.getters.getProducts;
+      let string = "sh";
+      return this.$store.getters.getProducts.filter((item) =>
+        new RegExp(string, "ig").test(item.title)
+      );
     },
   },
   methods: {

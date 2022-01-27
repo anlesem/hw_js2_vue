@@ -8,7 +8,8 @@ export default createStore({
 		showcase: [],
 		cart: [],
 		// строка для поиска товаров
-		queryString: ''
+		queryString: '',
+		menuVisible: false
 	},
 
 	// Методы для доступа к state для чтение данных
@@ -19,7 +20,9 @@ export default createStore({
 		// Дубликат данных корзины
 		getCart: (state) => [...state.cart],
 		// доступ к строке для поиска товаров
-		getQuery: (state) => state.queryString
+		getQuery: (state) => state.queryString,
+		// доступ к строке для поиска товаров
+		getMenuVisible: (state) => state.menuVisible
 	},
 
 	// Методы для доступа к state для изменение данных (обычно называют setters)
@@ -31,7 +34,8 @@ export default createStore({
 		removeFromCart: (state, product) => {
 			const index = state.cart.findIndex((item) => item.id == product.id)
 			state.cart.splice(index, 1)
-		}
+		},
+		setMenuVisible: (state, visible) => state.menuVisible = visible
 	},
 
 	// Асинхронные методы. 
