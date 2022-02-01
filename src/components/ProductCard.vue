@@ -55,7 +55,8 @@
         <p class="cart__item-text">Color: Red</p>
         <p class="cart__item-text">Size: Xl</p>
         <p class="cart__item-text">
-          Quantity: <input class="cart__item-input" type="number" />
+          Quantity:
+          <input class="cart__item-input" type="number" :value="data.count" />
         </p>
       </div>
     </li>
@@ -67,6 +68,8 @@
 <script>
 export default {
   name: "card",
+  // Значения активируются в компоненте, котором используются (Home и Cart) в <product-card>
+  // Для Корзины доступны дополнительные значения, полученные в Cart
   props: ["data", "target"],
   methods: {
     onClick() {
@@ -76,19 +79,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.card {
-  width: 30%;
-  border: 1px solid black;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-
-  img {
-    width: 100%;
-  }
-}
-</style>

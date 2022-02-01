@@ -8,6 +8,7 @@
         alt="Закрыть"
         width="13"
         height="13"
+        v-on:click="changeMenuVisible"
       />
       <ul class="header__menu-list">
         <li>
@@ -51,6 +52,13 @@
 
 <script>
 export default {
-  name: "MenuNav",
+  name: "menu-nav",
+  methods: {
+    changeMenuVisible() {
+      if (this.$store.getters.getMenuVisible)
+        this.$store.commit("setMenuVisible", false);
+      else this.$store.commit("setMenuVisible", true);
+    },
+  },
 };
 </script>

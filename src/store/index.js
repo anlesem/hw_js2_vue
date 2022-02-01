@@ -8,7 +8,8 @@ export default createStore({
 		showcase: [],
 		cart: [],
 		// строка для поиска товаров
-		queryString: ''
+		queryString: '',
+		menuVisible: false
 	},
 
 	// Методы для доступа к state для чтение данных
@@ -19,7 +20,9 @@ export default createStore({
 		// Дубликат данных корзины
 		getCart: (state) => [...state.cart],
 		// доступ к строке для поиска товаров
-		getQuery: (state) => state.queryString
+		getQuery: (state) => state.queryString,
+		// доступ к строке для поиска товаров
+		getMenuVisible: (state) => state.menuVisible
 	},
 
 	// Методы для доступа к state для изменение данных (обычно называют setters)
@@ -31,50 +34,43 @@ export default createStore({
 		removeFromCart: (state, product) => {
 			const index = state.cart.findIndex((item) => item.id == product.id)
 			state.cart.splice(index, 1)
-		}
+		},
+		setMenuVisible: (state, visible) => state.menuVisible = visible
 	},
 
 	// Асинхронные методы. 
 	// commit – метод Объекта Store для вызова методов из mutations
 	actions: {
-		loadShowcase({ commit }) {
-			return fetch(`${API_URL}/catalog`)
-				.then((req) => req.json())
-				.then((data) => {
-					commit('setShowcase', data)
-				})
+		async loadShowcase({ commit }) {
+			const req = await fetch(`${API_URL}/catalog`);
+			const data = await req.json();
+			commit('setShowcase', data);
 		},
-		loadCart({ commit }) {
-			return fetch(`${API_URL}/cart`)
-				.then((req) => req.json())
-				.then((data) => {
-					commit('setCart', data)
-				})
+		async loadCart({ commit }) {
+			const req = await fetch(`${API_URL}/cart`);
+			const data = await req.json();
+			commit('setCart', data);
 		},
-		addToCart({ commit }, product) {
-			return fetch(`${API_URL}/cart`, {
+		async addToCart({ commit }, product) {
+			await fetch(`${API_URL}/cart`, {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(product)
-			})
-				.then(() => {
-					commit('addToCart', product)
-				})
+			});
+			commit('addToCart', product);
 		},
 
-		removeFromCart({ commit }, product) {
-			return fetch(`${API_URL}/cart`, {
+		async removeFromCart({ commit }, product) {
+			await fetch(`${API_URL}/cart`, {
 				method: 'DELETE',
 				headers: {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(product)
-			})
-				.then(() => {
-					commit('removeFromCart', product)
-				})
+			});
+			commit('removeFromCart', product);
 		}
 	}
 })

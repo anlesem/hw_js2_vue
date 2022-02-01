@@ -25,7 +25,11 @@
           </div>
         </div>
         <div>
-          <button class="header__button" type="button" v-on:click="menuVisible">
+          <button
+            class="header__button"
+            type="button"
+            v-on:click="changeMenuVisible"
+          >
             <svg class="header__icon-redrow" width="32" height="23">
               <use href="#icon__menu" />
             </svg>
@@ -39,9 +43,12 @@
             <svg class="header__icon-redrow" width="32" height="29">
               <use href="#icon__cart" />
             </svg>
+            <span class="header__cart-total">{{
+              this.$store.getters.getCart.length
+            }}</span>
           </router-link>
         </div>
-        <MenuNav v-if="isMenuVisible" />
+        <menu-nav v-if="visible"></menu-nav>
       </div>
     </header>
     <main>
@@ -64,18 +71,21 @@ export default {
   components: {
     MenuNav,
   },
-  data() {
-    return { isMenuVisible: false };
-  },
   methods: {
-    menuVisible() {
-      this.isMenuVisible = !this.isMenuVisible;
+    changeMenuVisible() {
+      if (this.$store.getters.getMenuVisible)
+        this.$store.commit("setMenuVisible", false);
+      else this.$store.commit("setMenuVisible", true);
     },
   },
   computed: {
+    visible() {
+      return this.$store.getters.getMenuVisible;
+    },
+
     query: {
       get() {
-        return this.$store.getters.setQuery;
+        return this.$store.getters.getQuery;
       },
 
       set(value) {
